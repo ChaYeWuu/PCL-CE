@@ -6,7 +6,8 @@ namespace PCL;
 
 internal static class RestrictedFeaturePolicy
 {
-    internal static RegionAssessment Assess() => RegionPolicy.Evaluate(RegionPolicy.ReadWindowsSignals());
+    // 区域限制已移除：恒定为不受限，使所有受保护功能一律放行
+    internal static RegionAssessment Assess() => new(RegionClassification.Other, "region-limit-removed");
 
     internal static bool IsRestricted => Assess().IsRestricted;
 
