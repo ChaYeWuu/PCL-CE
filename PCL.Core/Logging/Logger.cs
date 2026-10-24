@@ -113,7 +113,7 @@ public sealed class Logger : IAsyncDisposable
             _currentFile = file;
             _currentStream = new StreamWriter(file, new UTF8Encoding(false), StreamBufferSize);
 
-            _files.Add(filePath);
+            _files.Add(file.Name);
 
             // Close the old handles before retention runs, otherwise the files stay locked.
             try
